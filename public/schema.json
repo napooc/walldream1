@@ -5,18 +5,32 @@
   "description": "Impression murale professionnelle : création et pose de décors grand format pour entreprises et commerces",
   "url": "https://walldream.ma",
   "logo": "https://walldream.ma/logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+212-522-000000",
-    "contactType": "Service client",
-    "areaServed": "MA",
-    "availableLanguage": ["fr", "ar"]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Casablanca",
-    "addressCountry": "MA"
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+33-7-74-59-86-27",
+      "contactType": "Service client",
+      "areaServed": "FR",
+      "availableLanguage": ["fr"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+41-77-808-32-70",
+      "contactType": "Service client",
+      "areaServed": "CH",
+      "availableLanguage": ["fr", "de"]
+    }
+  ],
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "addressCountry": "FR"
+    },
+    {
+      "@type": "PostalAddress",
+      "addressCountry": "CH"
+    }
+  ],
   "sameAs": [
     "https://www.facebook.com/walldream",
     "https://www.instagram.com/walldream",
@@ -29,10 +43,16 @@
       "@type": "Organization",
       "name": "Wall Dream"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Maroc"
-    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "France"
+      },
+      {
+        "@type": "Country",
+        "name": "Suisse"
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Services d'impression murale",

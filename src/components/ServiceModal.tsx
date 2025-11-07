@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { scrollToSection } from "@/lib/utils";
 
 interface ServiceModalProps {
   isOpen: boolean;
@@ -37,10 +38,12 @@ export const ServiceModal = ({
             />
             <div className="absolute inset-0 bg-gradient-overlay" />
             <Button
+              type="button"
               variant="ghost"
               size="icon"
               className="absolute right-4 top-4 text-white hover:bg-white/20"
               onClick={onClose}
+              aria-label="Fermer"
             >
               <X className="h-6 w-6" />
             </Button>
@@ -53,16 +56,18 @@ export const ServiceModal = ({
             </div>
             <div className="mt-8 flex gap-4">
               <Button
+                type="button"
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow"
                 onClick={() => {
                   onClose();
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  setTimeout(() => scrollToSection("contact"), 100);
                 }}
               >
                 Contactez-nous
               </Button>
               <Button
+                type="button"
                 size="lg"
                 variant="outline"
                 onClick={onClose}

@@ -24,7 +24,7 @@ export const VideoSection = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="videos" className="relative py-32 overflow-hidden">
       {/* Animated background */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-background via-accent/5 to-background"

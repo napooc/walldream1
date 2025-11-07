@@ -135,6 +135,7 @@ export const ContactInfo = () => {
 
       {/* Floating WhatsApp Button */}
       <motion.button
+        type="button"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
@@ -142,6 +143,7 @@ export const ContactInfo = () => {
         whileTap={{ scale: 0.9 }}
         onClick={() => setShowWhatsAppDialog(true)}
         className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center group"
+        aria-label="Ouvrir WhatsApp"
       >
         <motion.div
           className="absolute inset-0 bg-[#25D366] rounded-full"
@@ -170,6 +172,7 @@ export const ContactInfo = () => {
           </DialogHeader>
           <div className="grid grid-cols-1 gap-4 mt-6">
             <Button
+              type="button"
               onClick={() => handleWhatsAppClick("france")}
               className="h-20 text-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold"
             >
@@ -182,6 +185,7 @@ export const ContactInfo = () => {
               </div>
             </Button>
             <Button
+              type="button"
               onClick={() => handleWhatsAppClick("suisse")}
               className="h-20 text-lg bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold"
             >

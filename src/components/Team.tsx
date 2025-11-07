@@ -41,7 +41,7 @@ const teamMembers = [
 
 export const Team = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-background">
+    <section id="team" className="relative py-24 overflow-hidden bg-background">
       {/* Animated background */}
       <motion.div
         className="absolute inset-0 opacity-30"

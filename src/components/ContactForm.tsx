@@ -49,7 +49,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden bg-muted/30">
+    <section className="relative py-24 overflow-hidden bg-muted/30">
       {/* Animated background elements */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
@@ -128,22 +128,29 @@ export const ContactForm = () => {
                 {[
                   {
                     icon: Phone,
-                    title: "Téléphone",
-                    content: "+212 5 22 00 00 00",
-                    href: "tel:+212522000000",
+                    title: "Téléphone France",
+                    content: "07 74 59 86 27",
+                    href: "tel:+33774598627",
                     delay: 0.3,
+                  },
+                  {
+                    icon: Phone,
+                    title: "Téléphone Suisse",
+                    content: "+41 77 808 32 70",
+                    href: "tel:+41778083270",
+                    delay: 0.35,
                   },
                   {
                     icon: Mail,
                     title: "Email",
-                    content: "contact@walldream.ma",
-                    href: "mailto:contact@walldream.ma",
+                    content: "walldream2025@gmail.com",
+                    href: "mailto:walldream2025@gmail.com",
                     delay: 0.4,
                   },
                   {
                     icon: MapPin,
-                    title: "Adresse",
-                    content: "Casablanca, Maroc",
+                    title: "Zones d'intervention",
+                    content: "France & Suisse",
                     href: null,
                     delay: 0.5,
                   },
@@ -275,7 +282,7 @@ export const ContactForm = () => {
                   id: "phone",
                   label: "Téléphone",
                   type: "tel",
-                  placeholder: "+212 6 00 00 00 00",
+                  placeholder: "+33 6 00 00 00 00",
                   delay: 0.4,
                   required: false,
                 },
@@ -333,7 +340,7 @@ export const ContactForm = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting || isSuccess}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow relative overflow-hidden group"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                   size="lg"
                 >
                   <motion.span

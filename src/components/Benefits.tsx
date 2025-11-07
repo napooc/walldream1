@@ -4,14 +4,14 @@ import { TrendingUp, Award, Clock, Users } from "lucide-react";
 const benefits = [
   {
     icon: TrendingUp,
-    title: "ROI mesurable",
-    description: "Nos installations murales génèrent un retour sur investissement tangible en augmentant votre visibilité et en renforçant votre image de marque auprès de vos clients.",
+    title: "Booster visuel",
+    description: "Nos prestations valorisent vos espaces, renforcent votre image de marque et augmentent votre visibilité auprès de vos clients.",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
     icon: Award,
     title: "Qualité garantie",
-    description: "Nous utilisons exclusivement des matériaux premium et des technologies d'impression de pointe pour garantir des résultats exceptionnels qui durent dans le temps.",
+    description: "Nous utilisons des technologies d’impression de pointe afin d’assurer un rendu exceptionnel et durable.",
     gradient: "from-purple-500 to-pink-500",
   },
   {

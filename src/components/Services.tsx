@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ServiceCard } from "./ServiceCard";
 import { ServiceModal } from "./ServiceModal";
-import impactVisuel from "@/assets/service-impact-visuel.webp";
-import imageMarque from "@/assets/service-image-marque.webp";
-import effetLumineux from "@/assets/service-effet-lumineux.webp";
-import communicationSilencieuse from "@/assets/service-communication-silencieuse.webp";
-import investissementDurable from "@/assets/service-investissement-durable.webp";
-import visibiliteAccrue from "@/assets/service-visibilite-accrue.webp";
+import test1 from "@/assets/test1.jpg";
+import test2 from "@/assets/img.jpg";
+import test3 from "@/assets/test.jpg";
+import test4 from "@/assets/comm.jpg";
+import test5 from "@/assets/inve.jpg";
+import test6 from "@/assets/vis.jpg";
 
 const services = [
   {
@@ -17,7 +17,7 @@ const services = [
 Nous utilisons des technologies d'impression de pointe pour garantir des couleurs éclatantes et une netteté parfaite, même sur de très grandes surfaces. Que ce soit pour votre hall d'entrée, votre salle de réunion ou votre showroom, nous créons des décors qui marquent les esprits.
 
 Notre expertise couvre tous les secteurs : bureaux d'entreprise, commerces de détail, restaurants, hôtels, et espaces événementiels. Chaque installation est réalisée avec le plus grand soin pour assurer un résultat impeccable.`,
-    image: impactVisuel,
+    image: test1,
   },
   {
     title: "Image de marque forte",
@@ -27,17 +27,17 @@ Notre expertise couvre tous les secteurs : bureaux d'entreprise, commerces de d�
 Nous travaillons en étroite collaboration avec vous pour intégrer harmonieusement votre charte graphique, vos couleurs et vos messages clés. Chaque élément est pensé pour créer une cohérence parfaite avec votre identité globale.
 
 De la conception à l'installation, nous assurons que chaque détail reflète l'excellence de votre marque. Nos solutions s'adaptent à tous les espaces : bureaux, points de vente, espaces d'accueil, et zones de passage stratégiques.`,
-    image: imageMarque,
+    image: test2,
   },
   {
-    title: "Effet lumineux captivant",
-    description: "Exploitez la puissance de l'éclairage avec nos solutions rétro-éclairées qui créent des ambiances uniques et mémorables.",
-    fullDescription: `Nos impressions murales rétro-éclairées transforment vos espaces en créant des effets visuels spectaculaires. La lumière devient partie intégrante de votre décor, ajoutant profondeur et dimension à vos installations.
+    title: "Effet captivant ",
+    description: "Exploiter avec nos solutions qui créent des ambiances uniques et mémorables.",
+    fullDescription: `Nos impressions murales transforment vos espaces en créant des effets visuels spectaculaires et metres en lumière de vos décor ajoutant profondeur et dimensions à vos installations .
 
-Cette technologie permet de mettre en valeur vos visuels même dans des conditions de faible luminosité, garantissant une visibilité optimale 24h/24. L'effet lumineux crée une atmosphère sophistiquée et moderne qui ne laisse personne indifférent.
+Cette technologie permet de mettre en valeur une visibilité optimale .L'effet crée une atmosphère sophistiquée moderne qui ne laisse personne indifférent.
 
-Idéal pour les showrooms, boutiques de luxe, restaurants haut de gamme et espaces d'exposition, nos solutions rétro-éclairées offrent un retour sur investissement exceptionnel en attirant naturellement le regard et en créant une expérience immersive.`,
-    image: effetLumineux,
+Idéal pour les showroom boutique de luxe restaurant haut de gamme et espace d'exposition de solutions offre un retour sur investissement exceptionnel en attirant naturellement le regard est en créant une expérience immersive`,
+    image: test3,
   },
   {
     title: "Communication silencieuse",
@@ -47,7 +47,7 @@ Idéal pour les showrooms, boutiques de luxe, restaurants haut de gamme et espac
 Cette approche subtile permet à vos collaborateurs et visiteurs d'assimiler progressivement votre identité et vos objectifs, créant un environnement de travail inspirant et motivant. Les messages visuels renforcent naturellement l'adhésion à votre culture d'entreprise.
 
 Particulièrement efficace dans les espaces de travail collaboratifs, les zones de détente et les couloirs, cette forme de communication crée une atmosphère cohérente qui inspire et engage sans surcharger l'espace visuel.`,
-    image: communicationSilencieuse,
+    image: test4,
   },
   {
     title: "Investissement durable",
@@ -57,7 +57,7 @@ Particulièrement efficace dans les espaces de travail collaboratifs, les zones 
 Nos installations sont garanties pour conserver leur éclat et leur intégrité pendant de nombreuses années, même dans des environnements à fort passage. Cette longévité exceptionnelle en fait un investissement rentable sur le long terme.
 
 Les matériaux que nous utilisons sont également respectueux de l'environnement, répondant aux normes les plus strictes en matière de développement durable. Vous bénéficiez ainsi d'une solution écologique sans compromis sur la qualité ou l'esthétique.`,
-    image: investissementDurable,
+    image: test5,
   },
   {
     title: "Visibilité accrue",
@@ -67,7 +67,7 @@ Les matériaux que nous utilisons sont également respectueux de l'environnement
 Que ce soit en façade, dans vos espaces de vente ou lors d'événements, nos installations créent un impact visuel qui génère du trafic et augmente la notoriété de votre marque. L'effet "wow" attire naturellement l'attention et encourage l'engagement.
 
 Nos solutions sont particulièrement efficaces pour les lancements de produits, les campagnes promotionnelles et le renforcement de la présence de marque. Elles créent des opportunités de communication uniques qui génèrent buzz et recommandations.`,
-    image: visibiliteAccrue,
+    image: test6,
   },
 ];
 

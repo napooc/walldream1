@@ -21,34 +21,49 @@ const Index = () => {
     name: "Wall Dream",
     description: "Impression murale professionnelle : création et pose de décors grand format pour entreprises et commerces",
     url: "https://walldream.ma",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+212-522-000000",
-      contactType: "Service client",
-      areaServed: "MA",
-      availableLanguage: ["fr", "ar"]
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Casablanca",
-      addressCountry: "MA"
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+33-7-74-59-86-27",
+        contactType: "Service client",
+        areaServed: "FR",
+        availableLanguage: ["fr"]
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+41-77-808-32-70",
+        contactType: "Service client",
+        areaServed: "CH",
+        availableLanguage: ["fr", "de"]
+      }
+    ],
+    address: [
+      {
+        "@type": "PostalAddress",
+        addressCountry: "FR"
+      },
+      {
+        "@type": "PostalAddress",
+        addressCountry: "CH"
+      }
+    ],
     service: {
       "@type": "Service",
       serviceType: "Impression murale professionnelle",
       provider: {
         "@type": "Organization",
         name: "Wall Dream"
-      }
+      },
+      areaServed: ["FR", "CH"]
     }
   };
   return <>
       <Helmet>
-        <title>Wall Dream - Impression Murale Professionnelle Maroc</title>
+        <title>Wall Dream - Impression Murale Professionnelle</title>
         <meta name="description" content="Impression murale professionnelle : création et pose de décors grand format pour entreprises et commerces. Impact visuel immédiat, image de marque forte." />
-        <meta name="keywords" content="impression murale, décoration murale, impression grand format, habillage mural, Maroc, Casablanca" />
+        <meta name="keywords" content="impression murale, décoration murale, impression grand format, habillage mural, France, Suisse, Europe" />
         <meta property="og:title" content="Wall Dream - Impression Murale Professionnelle" />
-        <meta property="og:description" content="Spécialiste de l'impression murale professionnelle pour entreprises et commerces au Maroc." />
+        <meta property="og:description" content="Spécialiste de l'impression murale professionnelle pour entreprises et commerces en France et en Suisse." />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

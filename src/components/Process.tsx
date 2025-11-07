@@ -15,7 +15,7 @@ const steps = [
   {
     icon: Settings,
     title: "Production",
-    description: "Impression haute qualité avec des technologies de pointe et des matériaux premium sélectionnés pour leur durabilité.",
+    description: "Impression haute qualité avec des technologies de pointe.",
   },
   {
     icon: CheckCircle,

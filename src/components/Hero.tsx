@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
+import { TextEffect } from "@/components/ui/text-effect";
+import { scrollToSection } from "@/lib/utils";
 import heroImage1 from "@/assets/hero-mur-impression-bureau-01.webp";
 import heroImage2 from "@/assets/hero-mur-impression-commerce-02.webp";
 import heroImage3 from "@/assets/hero-mur-impression-restaurant-03.webp";
@@ -60,7 +63,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -80,24 +83,40 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
-        <motion.h1
-          key={`title-${currentSlide}`}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-6 text-5xl font-bold md:text-7xl"
-        >
-          {slides[currentSlide].title}
-        </motion.h1>
-        <motion.p
-          key={`subtitle-${currentSlide}`}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mb-8 max-w-2xl text-lg md:text-xl"
-        >
-          {slides[currentSlide].subtitle}
-        </motion.p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`title-${currentSlide}`}
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -30, opacity: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-6"
+          >
+            <AnimatedText
+              text={slides[currentSlide].title}
+              textClassName="text-5xl font-bold md:text-7xl text-white"
+              underlineClassName="text-white"
+              underlinePath="M 0,10 Q 100,0 200,10 Q 300,20 400,10 Q 500,0 600,10"
+              underlineHoverPath="M 0,10 Q 100,20 200,10 Q 300,0 400,10 Q 500,20 600,10"
+              underlineDuration={1.5}
+              viewBox="0 0 600 20"
+              disableTextAnimation={true}
+              className="w-full"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="mb-8 max-w-2xl text-lg md:text-xl text-white">
+          <TextEffect
+            key={`subtitle-${currentSlide}`}
+            per="word"
+            as="p"
+            preset="fade"
+            delay={0.4}
+            className="text-center"
+          >
+            {slides[currentSlide].subtitle}
+          </TextEffect>
+        </div>
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -106,16 +125,18 @@ export const Hero = () => {
         >
           <Button
             size="lg"
+            type="button"
             className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow transition-all duration-300 hover:scale-105"
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("contact")}
           >
             Demander un devis
           </Button>
           <Button
             size="lg"
+            type="button"
             variant="outline"
             className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
-            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("services")}
           >
             Nos services
           </Button>
@@ -125,26 +146,32 @@ export const Hero = () => {
       {/* Controls */}
       <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-4">
         <Button
+          type="button"
           variant="ghost"
           size="icon"
           onClick={prevSlide}
           className="text-white hover:bg-white/20 hover:text-white"
+          aria-label="Slide précédent"
         >
           <ChevronLeft className="h-6 w-6" />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="icon"
           onClick={togglePlayPause}
           className="text-white hover:bg-white/20 hover:text-white"
+          aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="icon"
           onClick={nextSlide}
           className="text-white hover:bg-white/20 hover:text-white"
+          aria-label="Slide suivant"
         >
           <ChevronRight className="h-6 w-6" />
         </Button>
@@ -155,11 +182,13 @@ export const Hero = () => {
         {slides.map((_, index) => (
           <button
             key={index}
+            type="button"
             onClick={() => {
               setCurrentSlide(index);
               setProgress(0);
             }}
-            className="group relative h-1 w-16 overflow-hidden rounded-full bg-white/30"
+            className="group relative h-1 w-16 overflow-hidden rounded-full bg-white/30 cursor-pointer transition-opacity hover:opacity-80"
+            aria-label={`Aller au slide ${index + 1}`}
           >
             <div
               className="h-full bg-accent transition-all duration-100"
