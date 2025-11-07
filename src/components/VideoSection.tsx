@@ -5,26 +5,23 @@ import { useState } from "react";
 const videos = [
   {
     id: 1,
-    title: "Projet Bureau Moderne",
-    thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=450&fit=crop",
-    videoUrl: "", // Add your video URL here
+    title: "Projet Créatif 1",
+    videoUrl: "/videos/video-1.mp4",
   },
   {
     id: 2,
-    title: "Restaurant Gastronomique",
-    thumbnail: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=450&fit=crop",
-    videoUrl: "", // Add your video URL here
+    title: "Projet Créatif 2",
+    videoUrl: "/videos/video-2.mp4",
   },
   {
     id: 3,
-    title: "Commerce de Luxe",
-    thumbnail: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=450&fit=crop",
-    videoUrl: "", // Add your video URL here
+    title: "Projet Créatif 3",
+    videoUrl: "/videos/video-3.mp4",
   },
 ];
 
 export const VideoSection = () => {
-  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
   return (
     <section className="relative py-32 overflow-hidden">
@@ -58,12 +55,12 @@ export const VideoSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Video className="w-5 h-5 text-accent" />
-            <span className="text-sm font-semibold text-accent">Découvrez nos réalisations</span>
+            <span className="text-sm font-semibold text-accent">Découvrez nos créations</span>
           </motion.div>
           
           <h2 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-accent bg-clip-text text-transparent">
-              Nos Réalisations
+              Nos Vidéos
             </span>
           </h2>
           
@@ -74,7 +71,7 @@ export const VideoSection = () => {
             transition={{ delay: 0.3 }}
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            Plongez dans l'univers de nos créations murales exceptionnelles
+            Découvrez nos projets en vidéo et laissez-vous inspirer
           </motion.p>
         </motion.div>
 
@@ -89,49 +86,63 @@ export const VideoSection = () => {
               className="group relative"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl shadow-elegant cursor-pointer"
-                onClick={() => setSelectedVideo(video.id)}
+                className="relative overflow-hidden rounded-2xl shadow-elegant bg-card"
               >
-                {/* Video thumbnail */}
-                <div className="aspect-video relative">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                  />
-                  
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                  
-                  {/* Play button */}
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
+                {playingVideo === video.id ? (
+                  <div className="aspect-video relative bg-background">
+                    <video
+                      src={video.videoUrl}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-contain"
+                      onEnded={() => setPlayingVideo(null)}
+                    />
+                  </div>
+                ) : (
+                  <div 
+                    className="aspect-video relative cursor-pointer group"
+                    onClick={() => setPlayingVideo(video.id)}
                   >
-                    <div className="relative">
-                      <motion.div
-                        className="absolute inset-0 bg-accent rounded-full blur-xl opacity-50"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.5, 0.8, 0.5],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                        }}
-                      />
-                      <div className="relative w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-glow">
-                        <Play className="w-8 h-8 text-accent-foreground ml-1" fill="currentColor" />
+                    <video
+                      src={video.videoUrl}
+                      className="w-full h-full object-cover"
+                      muted
+                      playsInline
+                    />
+                    
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                    
+                    {/* Play button */}
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <div className="relative">
+                        <motion.div
+                          className="absolute inset-0 bg-accent rounded-full blur-xl opacity-50"
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.5, 0.8, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                          }}
+                        />
+                        <div className="relative w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-glow">
+                          <Play className="w-8 h-8 text-accent-foreground ml-1" fill="currentColor" />
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                </div>
+                    </motion.div>
+                  </div>
+                )}
 
                 {/* Video title */}
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 p-6"
+                  className="p-6"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.2 + 0.3 }}
@@ -140,13 +151,17 @@ export const VideoSection = () => {
                     {video.title}
                   </h3>
                   <div className="flex items-center gap-2 text-accent">
-                    <span className="text-sm font-semibold">Voir le projet</span>
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.div>
+                    <span className="text-sm font-semibold">
+                      {playingVideo === video.id ? "En lecture" : "Cliquez pour regarder"}
+                    </span>
+                    {playingVideo !== video.id && (
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        →
+                      </motion.div>
+                    )}
                   </div>
                 </motion.div>
               </motion.div>
@@ -157,15 +172,6 @@ export const VideoSection = () => {
           ))}
         </div>
 
-        {/* Note for video integration */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-muted-foreground mt-12 text-sm"
-        >
-          Ajoutez vos URLs vidéo dans VideoSection.tsx pour activer la lecture
-        </motion.p>
       </div>
     </section>
   );

@@ -4,20 +4,20 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import sushiImage from "@/assets/mur-impression-sushi-restaurant.jpg";
-import pizzaImage from "@/assets/mur-impression-pizza-restaurant.jpg";
-import beauteImage from "@/assets/mur-impression-onglerie-beaute.jpg";
+import spidermanImage from "@/assets/realisation-spiderman.jpg";
+import burgerImage from "@/assets/realisation-burger.jpg";
+import officeImage from "@/assets/realisation-office.jpg";
+import childrenImage from "@/assets/realisation-children.jpg";
+import beautyImage from "@/assets/realisation-beauty.jpg";
+import bakeryImage from "@/assets/realisation-bakery.jpg";
 
 const galleryItems = [
-  { id: 1, category: "restaurant", image: sushiImage, title: "Restaurant Sushi - Impression murale réaliste" },
-  { id: 2, category: "restaurant", image: pizzaImage, title: "Pizzeria - Décor mural appétissant" },
-  { id: 3, category: "commerce", image: beauteImage, title: "Salon de beauté - Impression murale élégante" },
-  { id: 4, category: "bureau", image: "/placeholder.svg", title: "Siège social moderne" },
-  { id: 5, category: "commerce", image: "/placeholder.svg", title: "Boutique de luxe" },
-  { id: 6, category: "restaurant", image: "/placeholder.svg", title: "Restaurant gastronomique" },
-  { id: 7, category: "evenement", image: "/placeholder.svg", title: "Stand événementiel" },
-  { id: 8, category: "bureau", image: "/placeholder.svg", title: "Open space créatif" },
-  { id: 9, category: "commerce", image: "/placeholder.svg", title: "Showroom automobile" },
+  { id: 1, category: "commerce", image: spidermanImage, title: "Chambre d'enfant Spiderman - Impression murale créative" },
+  { id: 2, category: "restaurant", image: burgerImage, title: "Restaurant Fast-Food - Décor mural appétissant" },
+  { id: 3, category: "bureau", image: officeImage, title: "Espace de travail moderne - Impression artistique" },
+  { id: 4, category: "commerce", image: childrenImage, title: "Crèche - Décoration murale ludique" },
+  { id: 5, category: "commerce", image: beautyImage, title: "Salon de beauté - Les 6 atouts d'une impression murale" },
+  { id: 6, category: "restaurant", image: bakeryImage, title: "Boulangerie-Pâtisserie - Impression murale gourmande" },
 ];
 
 const categories = [
@@ -25,7 +25,6 @@ const categories = [
   { id: "bureau", label: "Bureau" },
   { id: "commerce", label: "Commerce" },
   { id: "restaurant", label: "Restauration" },
-  { id: "evenement", label: "Événement" },
 ];
 
 export const Gallery = () => {
