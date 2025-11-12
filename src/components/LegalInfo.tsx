@@ -23,9 +23,9 @@ export const LegalInfo = () => {
       icon: Camera,
       title: "Utilisation promotionnelle",
       content: "Sauf refus écrit, le client autorise WALL DREAM à utiliser les photos du résultat final dans sa communication (site, réseaux, catalogue).",
-      gradient: "from-secondary/20 via-secondary/10 to-transparent",
-      iconColor: "text-secondary",
-      glowColor: "shadow-secondary/20",
+      gradient: "from-primary/30 via-accent/20 to-transparent",
+      iconColor: "text-primary",
+      glowColor: "shadow-primary/30",
     },
   ];
 
