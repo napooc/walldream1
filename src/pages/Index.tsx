@@ -11,6 +11,7 @@ import { FAQ } from "@/components/FAQ";
 import { Team } from "@/components/Team";
 import { VideoSection } from "@/components/VideoSection";
 import { ContactInfo } from "@/components/ContactInfo";
+import { LegalInfo } from "@/components/LegalInfo";
 import { Footer } from "@/components/Footer";
 import { OpeningAnimation } from "@/components/OpeningAnimation";
 import { Helmet } from "react-helmet";
@@ -82,7 +83,7 @@ const Index = () => {
           <Team />
           <VideoSection />
           <Testimonials />
-          
+          <LegalInfo />
           <ContactInfo />
         </main>
         <Footer />
