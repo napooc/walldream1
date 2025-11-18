@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
@@ -16,6 +17,26 @@ import { Footer } from "@/components/Footer";
 import { OpeningAnimation } from "@/components/OpeningAnimation";
 import { Helmet } from "react-helmet";
 const Index = () => {
+  // Handle scrolling to section after navigation from other pages
+  useEffect(() => {
+    const scrollToTarget = sessionStorage.getItem("scrollToSection");
+    if (scrollToTarget) {
+      sessionStorage.removeItem("scrollToSection");
+      // Wait for all components to be mounted
+      setTimeout(() => {
+        const element = document.querySelector(scrollToTarget);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }, []);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",

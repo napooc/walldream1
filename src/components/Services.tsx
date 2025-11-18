@@ -32,7 +32,7 @@ De la conception à l'installation, nous assurons que chaque détail reflète l'
   {
     title: "Effet captivant ",
     description: "Exploiter avec nos solutions qui créent des ambiances uniques et mémorables.",
-    fullDescription: `Nos impressions murales transforment vos espaces en créant des effets visuels spectaculaires et metres en lumière de vos décor ajoutant profondeur et dimensions à vos installations .
+    fullDescription: `Nos impressions murales transforment vos espaces en créant des effets visuels spectaculaires et mettent en lumière vos décors, en ajoutant profondeur et dimension à vos installations.
 
 Cette technologie permet de mettre en valeur une visibilité optimale .L'effet crée une atmosphère sophistiquée moderne qui ne laisse personne indifférent.
 
@@ -52,11 +52,11 @@ Particulièrement efficace dans les espaces de travail collaboratifs, les zones 
   {
     title: "Investissement durable",
     description: "Bénéficiez d'une solution pérenne avec des matériaux de qualité supérieure conçus pour résister à l'épreuve du temps.",
-    fullDescription: `Investir dans nos impressions murales, c'est choisir la durabilité. Nous utilisons exclusivement des matériaux de première qualité, résistants à la décoloration, à l'humidité et à l'usure quotidienne.
+    fullDescription: `La qualité qui se voit. La durabilité qui se sent.
 
-Nos installations sont garanties pour conserver leur éclat et leur intégrité pendant de nombreuses années, même dans des environnements à fort passage. Cette longévité exceptionnelle en fait un investissement rentable sur le long terme.
+Pensé pour durer, conçu pour séduire.
 
-Les matériaux que nous utilisons sont également respectueux de l'environnement, répondant aux normes les plus strictes en matière de développement durable. Vous bénéficiez ainsi d'une solution écologique sans compromis sur la qualité ou l'esthétique.`,
+Ne changez plus vos murs. Sublimez-les.`,
     image: test5,
   },
   {

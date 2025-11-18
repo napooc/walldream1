@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navItems = [
@@ -18,6 +19,8 @@ const navItems = [
 ];
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -91,16 +94,64 @@ export const Navbar = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== "/") {
+      // Store the target section to scroll to after navigation
+      sessionStorage.setItem("scrollToSection", href);
+      navigate("/");
+      // Scroll to top immediately for clean transition
+      window.scrollTo({ top: 0, behavior: "instant" });
+      // The Index component's useEffect will handle the scrolling
+      // This is just a backup in case the component takes longer to mount
+      setTimeout(() => {
+        const scrollToTarget = sessionStorage.getItem("scrollToSection");
+        if (scrollToTarget) {
+          const element = document.querySelector(scrollToTarget);
+          if (element) {
+            // Use requestAnimationFrame for smoother scrolling
+            requestAnimationFrame(() => {
+              const offset = 80;
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - offset;
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+              // Remove after successful scroll
+              sessionStorage.removeItem("scrollToSection");
+            });
+          } else {
+            // If element not found, try again after a bit more time
+            setTimeout(() => {
+              const retryElement = document.querySelector(scrollToTarget);
+              if (retryElement) {
+                const offset = 80;
+                const elementPosition = retryElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+                // Remove after successful scroll
+                sessionStorage.removeItem("scrollToSection");
+              }
+            }, 300);
+          }
+        }
+      }, 250);
+    } else {
+      // We're already on home page, just scroll
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
     setIsMobileMenuOpen(false);
   };
