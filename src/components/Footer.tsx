@@ -1,6 +1,18 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import { tape } from "@/components/ui/footer-taped-design";
 import { scrollToSection } from "@/lib/utils";
+
+// TikTok icon component
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,7 +51,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-3 mt-2">
               <a
-                href="https://facebook.com"
+                href="https://web.facebook.com/people/Dom-Icile/61572403380475/?rdid=CalJ82LIKVs3Zi7P&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1DYMAoop37%2F%3Fwtsid%3Drdr_0v5I6smfcC9eezZjA%26_rdc%3D1%26_rdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-accent hover:text-white"
@@ -48,7 +60,7 @@ export const Footer = () => {
                 <Facebook className="h-5 w-5 text-gray-700 hover:text-white transition-colors" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/walldreamm/?igsh=MTJubWpvNTZtZ3JnNg%3D%3D#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-accent hover:text-white"
@@ -57,13 +69,13 @@ export const Footer = () => {
                 <Instagram className="h-5 w-5 text-gray-700 hover:text-white transition-colors" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.tiktok.com/@walldream0?_r=1&_t=ZM-91VeXDc5OzE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-accent hover:text-white"
-                aria-label="LinkedIn"
+                aria-label="TikTok"
               >
-                <Linkedin className="h-5 w-5 text-gray-700 hover:text-white transition-colors" />
+                <TikTokIcon className="h-5 w-5 text-gray-700 hover:text-white transition-colors" />
               </a>
             </div>
           </div>
@@ -180,16 +192,7 @@ export const Footer = () => {
 
         <div className="flex gap-4 items-center">
           <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="nofollow noopener"
-            aria-label="LinkedIn"
-            className="hover:text-accent transition-colors"
-          >
-            <Linkedin className="w-5 h-5 fill-gray-600 hover:fill-accent transition-colors" />
-          </a>
-          <a
-            href="https://facebook.com"
+            href="https://web.facebook.com/people/Dom-Icile/61572403380475/?rdid=CalJ82LIKVs3Zi7P&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1DYMAoop37%2F%3Fwtsid%3Drdr_0v5I6smfcC9eezZjA%26_rdc%3D1%26_rdr"
             target="_blank"
             rel="nofollow noopener"
             aria-label="Facebook"
@@ -198,13 +201,22 @@ export const Footer = () => {
             <Facebook className="w-5 h-5 fill-gray-600 hover:fill-accent transition-colors" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/walldreamm/?igsh=MTJubWpvNTZtZ3JnNg%3D%3D#"
             target="_blank"
             rel="nofollow noopener"
             aria-label="Instagram"
             className="hover:text-accent transition-colors"
           >
             <Instagram className="w-5 h-5 fill-gray-600 hover:fill-accent transition-colors" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@walldream0?_r=1&_t=ZM-91VeXDc5OzE"
+            target="_blank"
+            rel="nofollow noopener"
+            aria-label="TikTok"
+            className="hover:text-accent transition-colors"
+          >
+            <TikTokIcon className="w-5 h-5 fill-gray-600 hover:fill-accent transition-colors" />
           </a>
         </div>
       </div>
