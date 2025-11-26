@@ -16,6 +16,8 @@ import { LegalInfo } from "@/components/LegalInfo";
 import { Footer } from "@/components/Footer";
 import { OpeningAnimation } from "@/components/OpeningAnimation";
 import { Helmet } from "react-helmet";
+import { getOrganizationStructuredData, getSeoConfig, getAlternateUrls } from "@/lib/seo";
+
 const Index = () => {
   // Handle scrolling to section after navigation from other pages
   useEffect(() => {
@@ -37,57 +39,34 @@ const Index = () => {
       }, 100);
     }
   }, []);
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Wall Dream",
-    description: "Impression murale professionnelle : création et pose de décors grand format pour entreprises et commerces",
-    url: "https://walldream.ma",
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+33-7-74-59-86-27",
-        contactType: "Service client",
-        areaServed: "FR",
-        availableLanguage: ["fr"]
-      },
-      {
-        "@type": "ContactPoint",
-        telephone: "+41-77-808-32-70",
-        contactType: "Service client",
-        areaServed: "CH",
-        availableLanguage: ["fr", "de"]
-      }
-    ],
-    address: [
-      {
-        "@type": "PostalAddress",
-        addressCountry: "FR"
-      },
-      {
-        "@type": "PostalAddress",
-        addressCountry: "CH"
-      }
-    ],
-    service: {
-      "@type": "Service",
-      serviceType: "Impression murale professionnelle",
-      provider: {
-        "@type": "Organization",
-        name: "Wall Dream"
-      },
-      areaServed: ["FR", "CH"]
-    }
-  };
+
+  const structuredData = getOrganizationStructuredData();
+  const seoConfig = getSeoConfig();
+  const alternateUrls = getAlternateUrls('/');
   return <>
       <Helmet>
-        <title>Wall Dream - Impression Murale Professionnelle</title>
-        <meta name="description" content="Impression murale professionnelle : création et pose de décors grand format pour entreprises et commerces. Impact visuel immédiat, image de marque forte." />
-        <meta name="keywords" content="impression murale, décoration murale, impression grand format, habillage mural, France, Suisse, Europe" />
-        <meta property="og:title" content="Wall Dream - Impression Murale Professionnelle" />
-        <meta property="og:description" content="Spécialiste de l'impression murale professionnelle pour entreprises et commerces en France et en Suisse." />
+        <title>{seoConfig.title}</title>
+        <meta name="description" content={seoConfig.description} />
+        <meta name="keywords" content={seoConfig.keywords} />
+        <link rel="canonical" href={seoConfig.canonical} />
+        
+        {/* Hreflang tags */}
+        <link rel="alternate" hrefLang="fr-FR" href={alternateUrls['fr-FR']} />
+        <link rel="alternate" hrefLang="fr-CH" href={alternateUrls['fr-CH']} />
+        <link rel="alternate" hrefLang="x-default" href={alternateUrls['x-default']} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={seoConfig.ogTitle} />
+        <meta property="og:description" content={seoConfig.ogDescription} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={seoConfig.canonical} />
+        
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoConfig.ogTitle} />
+        <meta name="twitter:description" content={seoConfig.ogDescription} />
+        
+        {/* Structured Data */}
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

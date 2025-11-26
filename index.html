@@ -18,7 +18,41 @@
     <meta name="twitter:site" content="@WallDream" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
-    <link rel="canonical" href="https://walldream.ma" />
+    <link rel="canonical" href="https://walldream.fr" id="canonical-link" />
+    
+    <!-- Hreflang tags for multi-domain SEO -->
+    <link rel="alternate" hreflang="fr-FR" href="https://walldream.fr/" id="hreflang-fr" />
+    <link rel="alternate" hreflang="fr-CH" href="https://walldream.ch/" id="hreflang-ch" />
+    <link rel="alternate" hreflang="x-default" href="https://walldream.fr/" id="hreflang-default" />
+    
+    <script>
+      // Dynamic SEO tags based on current domain
+      (function() {
+        const hostname = window.location.hostname;
+        const pathname = window.location.pathname;
+        const isFrance = hostname.includes('walldream.fr') || hostname.includes('.fr');
+        const isSuisse = hostname.includes('walldream.ch') || hostname.includes('.ch');
+        
+        // Update canonical URL
+        const canonical = document.getElementById('canonical-link');
+        if (isFrance) {
+          canonical.href = 'https://walldream.fr' + pathname;
+          document.title = 'Wall Dream France - Impression Murale Professionnelle';
+          document.querySelector('meta[name="description"]').content = 
+            'Impression murale professionnelle en France : création et pose de décors grand format pour entreprises et commerces. Impact visuel immédiat, image de marque forte.';
+        } else if (isSuisse) {
+          canonical.href = 'https://walldream.ch' + pathname;
+          document.title = 'Wall Dream Suisse - Impression Murale Professionnelle';
+          document.querySelector('meta[name="description"]').content = 
+            'Impression murale professionnelle en Suisse : création et pose de décors grand format pour entreprises et commerces. Impact visuel immédiat, image de marque forte.';
+        }
+        
+        // Update hreflang tags with current path
+        document.getElementById('hreflang-fr').href = 'https://walldream.fr' + pathname;
+        document.getElementById('hreflang-ch').href = 'https://walldream.ch' + pathname;
+        document.getElementById('hreflang-default').href = 'https://walldream.fr' + pathname;
+      })();
+    </script>
   </head>
 
   <body>

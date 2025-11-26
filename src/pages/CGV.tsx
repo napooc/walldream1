@@ -2,15 +2,37 @@ import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { getCountryFromDomain } from "@/lib/utils";
+import { getAlternateUrls, getBaseUrl } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { FileText, Shield, Scale, Info } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const CGV = () => {
   const country = getCountryFromDomain();
+  const baseUrl = getBaseUrl();
+  const alternateUrls = getAlternateUrls('/cgv');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const seoConfig = country === 'france'
+    ? {
+        title: "CGV France - Wall Dream - Conditions Générales de Vente",
+        description: "Conditions générales de vente et mentions légales de Wall Dream France. Prestations d'impression murale professionnelle en France.",
+        canonical: `${baseUrl}/cgv`
+      }
+    : country === 'suisse'
+    ? {
+        title: "CGV Suisse - Wall Dream - Conditions Générales de Vente",
+        description: "Conditions générales de vente et mentions légales de Wall Dream Suisse. Prestations d'impression murale professionnelle en Suisse.",
+        canonical: `${baseUrl}/cgv`
+      }
+    : {
+        title: "CGV - Wall Dream - Conditions Générales de Vente",
+        description: "Conditions générales de vente et mentions légales de Wall Dream. Prestations d'impression murale professionnelle.",
+        canonical: `${baseUrl}/cgv`
+      };
 
   const contentFrance = {
     title: "MENTIONS LÉGALES & CGV FRANCE",
@@ -174,6 +196,23 @@ En cas de litige, les tribunaux du pays de résidence du prestataire sont compé
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{seoConfig.title}</title>
+        <meta name="description" content={seoConfig.description} />
+        <link rel="canonical" href={seoConfig.canonical} />
+        
+        {/* Hreflang tags */}
+        <link rel="alternate" hrefLang="fr-FR" href={alternateUrls['fr-FR']} />
+        <link rel="alternate" hrefLang="fr-CH" href={alternateUrls['fr-CH']} />
+        <link rel="alternate" hrefLang="x-default" href={alternateUrls['x-default']} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={seoConfig.title} />
+        <meta property="og:description" content={seoConfig.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={seoConfig.canonical} />
+      </Helmet>
+      
       <Navbar />
       
       <main className="pt-24 pb-16">
