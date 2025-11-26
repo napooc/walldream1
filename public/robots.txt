@@ -12,3 +12,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://walldream.fr/sitemap-fr.xml
+Sitemap: https://walldream.ch/sitemap-ch.xml
